@@ -1,0 +1,22 @@
+# Runtime storage / cache
+data/
+*.db
+*.sqlite
+*.sqlite3
+
+# Generated demo artifacts
+big*.txt
+README_restored.md
+*.log
+*.tmp
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+.venv/
+venv/
+
+# OS
+.DS_Store
+Thumbs.db
