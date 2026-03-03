@@ -1,26 +1,35 @@
 
 # TileMindFS (V2)
 
-Minimal reproducible user-space tile storage system.
+User-space MVP: content-defined chunking (CDC) + tile hashing + dedup + compression + reporting + optimizer loop.
 
-## Features
-
-- SHA256 tile hashing
-- Deduplication
-- Compression (zlib)
-- Reconstruction bit-identical
-- Report + Optimizer loop
-
-## Quick Start (Windows PowerShell)
-
+## Quick start (Windows PowerShell)
 ```powershell
-python main.py store README.md
-python main.py reconstruct README.md README_restored.md
+cd .\TileMindFS_V2
+python .\main.py store .\README.md
+python .\main.py reconstruct README.md .\README_restored.md
 certutil -hashfile .\README.md SHA256
 certutil -hashfile .\README_restored.md SHA256
-python main.py report
+python .\main.py report
+python .\main.py optimize --interval 5
 ```
 
-## Proof
+## Commands
+- Store (CDC default):
+`python main.py store <file>`
 
-Reconstruction verified via SHA256.
+- Store (fixed tiles 8KB):
+`python main.py store <file> --mode fixed --tile-size 8192`
+
+- Reconstruct:
+`python main.py reconstruct <original> <output>`
+
+- Report:
+`python main.py report --top 10`
+
+- Optimizer loop:
+`python main.py optimize --interval 10 --top 10`
+
+
+## Proof
+See `PROOF.md` and run `demo_all.ps1`.
