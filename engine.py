@@ -74,11 +74,8 @@ class TileStore:
 
     def _norm_key(self, filepath: str) -> str:
         p = Path(filepath)
-        try:
-            if p.is_absolute():
-                return str(p.resolve())
-        except Exception:
-            pass
+        if p.is_absolute():
+            return str(p.resolve())
         return p.as_posix().lstrip("./")
 
     def store_file(self, filepath: str, mode: str = "cdc", tile_size: int = 8192,
