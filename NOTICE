@@ -1,0 +1,8 @@
+NOTICE
+
+TileMindFS (V2) — a user-space proof-of-concept for CDC chunking + tile hashing + dedup + compression + reconstruction.
+
+Copyright (c) 2026 Nora (a.k.a. ErrorCat04)
+
+Trademark / name:
+"TileMindFS" and "ErrorCat04" are used as project identifiers. No trademark rights are granted by the LICENSE.
